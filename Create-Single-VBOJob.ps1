@@ -6,4 +6,5 @@ PARAM(
 $UserAccount=Get-ADUser -Identity $SamAccountName
 $VBOUser=Get-VBOOrganizationUser -Organization $VBOOrganization -Type User -Name $UserAccount.Name
 $VBOItem=New-VBOBackupItem -User $VBOUser -Mailbox 
-Add-VBOJob -Organization $VBOOrganization -Repository $VBORepository -SelectedItems $VBOItem -Name $VBOUser.DisplayName -RunJob
+# If you want the job to run immediately, uncomment '-RunJob' on the next line.
+Add-VBOJob -Organization $VBOOrganization -Repository $VBORepository -SelectedItems $VBOItem -Name $VBOUser.DisplayName # -RunJob
